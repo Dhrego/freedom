@@ -15,6 +15,10 @@ body {
 
 main {
   height: calc(100vh - 58.5px);
+  max-width: 1800px;
+  /* position: relative; */
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .model {
@@ -22,6 +26,7 @@ main {
   left: 50%;
   bottom: 0;
   transform: translate(-50%, 0);
+  user-select: none;
 }
 
 .model img {
