@@ -40,6 +40,7 @@ main {
   top: 15%;
   left: 40px;
 }
+
 .text.photos {
   top: 45%;
   right: 40px;
@@ -55,6 +56,11 @@ main {
   border-radius: 50px;
   cursor: pointer;
   transform: translateX(-120%);
+  transition: backdrop-filter 0.3s ease;
+}
+
+.arrow:hover {
+  backdrop-filter: blur(30px);
 }
 
 .desc {

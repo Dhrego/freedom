@@ -1,5 +1,5 @@
 <nav>
-  <div class="logo">Portfolio</div>
+  <div class="logo">PORTFOLIO</div>
   <div class="date">2023-2024</div>
   <div class="menu">MENU</div>
 </nav>
@@ -11,5 +11,32 @@
     align-items: center;
     padding: 20px 40px;
     transform: translateY(-100%);
+  }
+
+  .logo {
+    font-weight: bold;
+  }
+
+  .menu {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .menu::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .menu:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
   }
 </style>
