@@ -1,0 +1,162 @@
+<div class="loader">
+  <div class="ball-container">
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+  </div>
+
+  <div class="loading-text">
+    <span>THE PORTFOLIO IS LOADING</span>
+  </div>
+</div>
+<style>
+  .loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: white;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .ball-container {
+    position: relative;
+    left: 50%;
+    top: 30%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    /* overflow: hidden; */
+    border: 4px solid #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0);
+  }
+  .loading-text {
+    position: relative;
+    left: 50%;
+    top: 35%;
+    width: fit-content;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .ball {
+    width: 60px;
+    height: 60px;
+    background-color: #262626;
+    border-radius: 100%;
+  }
+
+  .ball:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* animation: ball1 2s ease-in-out infinite; */
+  }
+
+  .ball:nth-child(2n) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .ball:last-child {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%);
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import $ from "jquery";
+
+  const tl = gsap.timeline({ repeat: -1 });
+
+  tl.to(".ball:first-child", {
+    duration: 1,
+    left: "50%",
+    top: "50%",
+    translateX: "-50%",
+  })
+    .to(".ball:first-child", {
+      duration: 1,
+      left: "100%",
+      translateX: "-100%",
+      top: "0",
+    })
+    .to(".ball:first-child", {
+      duration: 1,
+      top: "0",
+      left: "0",
+      translateX: "0",
+    });
+
+  tl.to(
+    ".ball:nth-child(2n)",
+    {
+      duration: 1,
+      left: "100%",
+      translateX: "-50%",
+      top: "0",
+    },
+    "-=3"
+  )
+    .to(
+      ".ball:nth-child(2n)",
+      {
+        duration: 1,
+        top: "0",
+        left: "0",
+        translateX: "50%",
+      },
+      "-=2"
+    )
+    .to(
+      ".ball:nth-child(2n)",
+      {
+        duration: 1,
+        left: "50%",
+        top: "50%",
+        translateX: "0",
+      },
+      "-=1"
+    );
+
+  tl.to(
+    ".ball:last-child",
+    {
+      duration: 1,
+      top: "0",
+      left: "0",
+      translateX: "0",
+    },
+    "-=3"
+  )
+    .to(
+      ".ball:last-child",
+      {
+        duration: 1,
+        left: "50%",
+        top: "50%",
+        translateX: "-50%",
+      },
+      "-=2"
+    )
+    .to(
+      ".ball:last-child",
+      {
+        duration: 1,
+        left: "100%",
+        translateX: "-100%",
+        top: "0",
+      },
+      "-=1"
+    );
+</script>
