@@ -103,38 +103,6 @@ import "../styles/style.css";
         </div>
       </div>
     </main>
-    <script>
-      import { gsap } from "gsap";
-      import $ from "jquery";
-
-      $(window).on("load", function () {
-        const tl = gsap.timeline();
-
-        tl.to(".freedom svg path", {
-          y: 0,
-          duration: 1,
-          ease: "power3.inOut",
-          stagger: 0.1,
-        })
-          .to(
-            ".photos svg path",
-            {
-              y: 0,
-              duration: 1,
-              ease: "power3.inOut",
-              stagger: -0.1,
-            },
-            "-=1.5"
-          )
-          .to(".arrow, .desc", {
-            x: 0,
-            ease: "circ",
-          })
-          .to("nav", {
-            y: 0,
-            ease: "circ",
-          });
-      });
-    </script>
+    <script src="../scripts/app.js"></script>
   </body>
 </html>
