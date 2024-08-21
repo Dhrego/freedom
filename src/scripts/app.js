@@ -43,12 +43,16 @@ $(window).on("load", function () {
       },
       "<"
     )
-    .to(".freedom svg path", {
-      y: 0,
-      duration: 1,
-      ease: "power3.inOut",
-      stagger: 0.1,
-    })
+    .to(
+      ".freedom svg path",
+      {
+        y: 0,
+        duration: 1,
+        ease: "power3.inOut",
+        stagger: 0.1,
+      },
+      "-=.5"
+    )
     .to(
       ".photos svg path",
       {
