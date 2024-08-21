@@ -33,7 +33,7 @@ $(window).on("load", function () {
   tl.to(".loader", {
     duration: 1.5,
     translateY: "-100%",
-    ease: "power2.inOut",
+    ease: "power3.inOut",
   })
     .to(
       ".ball, .loading-text",
