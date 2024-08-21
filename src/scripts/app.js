@@ -26,14 +26,29 @@ const startLoader = (delay) => {
 };
 
 $(window).on("load", function () {
-  const tl = gsap.timeline();
+  startLoader(500);
 
-  tl.to(".freedom svg path", {
-    y: 0,
-    duration: 1,
-    ease: "power3.inOut",
-    stagger: 0.1,
+  const tl = gsap.timeline({ delay: 4 });
+
+  tl.to(".loader", {
+    duration: 1.5,
+    translateY: "-100%",
+    ease: "power2.inOut",
   })
+    .to(
+      ".ball, .loading-text",
+      {
+        duration: 0.5,
+        opacity: 0,
+      },
+      "<"
+    )
+    .to(".freedom svg path", {
+      y: 0,
+      duration: 1,
+      ease: "power3.inOut",
+      stagger: 0.1,
+    })
     .to(
       ".photos svg path",
       {
@@ -55,8 +70,6 @@ $(window).on("load", function () {
 });
 
 const tlBALLS = gsap.timeline({ repeat: -1 });
-
-startLoader();
 
 tlBALLS
   .to(".ball:first-child", {
