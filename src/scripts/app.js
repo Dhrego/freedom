@@ -28,6 +28,8 @@ const startLoader = (delay) => {
 $(window).on("load", function () {
   startLoader(500);
 
+  gsap.set("body", { cursor: "progress" });
+
   const tl = gsap.timeline({ delay: 4 });
 
   tl.to(".loader", {
@@ -70,6 +72,10 @@ $(window).on("load", function () {
     .to("nav", {
       y: 0,
       ease: "circ",
+    })
+    .add(() => {
+      gsap.set("body", { cursor: "auto" });
+      gsap.set(".loader", { display: "none" });
     });
 });
 
